@@ -15,6 +15,11 @@ class ZipCodeController extends Controller
      */
     public function __invoke(ZipCode $zipCode)
     {
-        return new ZipCodeResource($zipCode->load('settlements'));
+        return new ZipCodeResource($zipCode->load([
+            'municipality',
+            'settlements',
+            'settlements.settlementType',
+            'federalEntity',
+        ]));
     }
 }
