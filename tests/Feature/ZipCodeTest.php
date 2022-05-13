@@ -25,19 +25,19 @@ class ZipCodeTest extends TestCase
     {
         $zipCode = ZipCode::factory()->create([
             'zip_code' => 72000,
-            'locality' => 'ZOO',
+            'locality' => 'Sán Andés Choluláñ',
         ]);
 
         $settlement1 = Settlement::factory()->for($zipCode, 'zipCode')->create([
-            'name' => 'FOO',
+            'name' => 'FOó',
         ]);
 
         $settlement2 = Settlement::factory()->for($zipCode, 'zipCode')->create([
-            'name' => 'ZOO',
+            'name' => 'ZOó',
         ]);
 
         $settlement3 = Settlement::factory()->for($zipCode, 'zipCode')->create([
-            'name' => 'VAR',
+            'name' => 'VáRÉ@',
         ]);
 
         $this->getJson("{$this->endpoint}/{$zipCode->zip_code}")
